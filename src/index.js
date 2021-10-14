@@ -6,7 +6,7 @@ import "antd/dist/antd.css";
 
 ReactDOM.render(
     <React.StrictMode>
-        <BrowserRouter basename="/">
+        <BrowserRouter basename="/r6s-matches-parser">
             <App />
         </BrowserRouter>
     </React.StrictMode>,

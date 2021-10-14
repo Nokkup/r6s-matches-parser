@@ -4,6 +4,7 @@ import parse from "./functions/parser";
 import AppRouter from "./components/AppRouter/AppRouter";
 import MatchesListContext from "./context/MatchListContext";
 import { getFromLocalStorage, saveInLocalStorage } from "./functions/localStore";
+import API from "./api";
 
 function App() {
     const [parsed, setParsed] = useState([]);
@@ -16,7 +17,7 @@ function App() {
             return;
         }
 
-        fetch("api-result.json")
+        fetch(API)
             .then((res) => res.json())
             .then((res) => res.parse.text["*"])
             .then((res) => {
