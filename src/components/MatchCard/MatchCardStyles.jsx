@@ -11,7 +11,7 @@ export const League = styled.div`
     background: rgb(195, 224, 229);
 
     @media screen and (max-width: 768px) {
-        width: 250px;
+        width: 350px;
         height: 40px;
     }
 `;
@@ -26,7 +26,7 @@ export const MatchDate = styled.div`
     background: rgb(195, 224, 229);
 
     @media screen and (max-width: 768px) {
-        width: 250px;
+        width: 350px;
         height: 40px;
     }
 `;
@@ -72,6 +72,7 @@ export const TeamCard = styled.div`
     background: rgba(14, 17, 22, 0.9);
 
     @media screen and (max-width: 768px) {
+        width: 100vw;
         height: 70px;
     }
 `;

@@ -23,7 +23,7 @@ const Main = () => {
 
     return (
         <Row justify="center" align="middle">
-            <Col span={md ? 6 : 20} offset={1}>
+            <Col span={md ? 6 : 20} offset={md ? 1 : 0}>
                 <CollapseFilter
                     breakpoint={md}
                     leagues={leagues}
@@ -33,7 +33,7 @@ const Main = () => {
                 />
             </Col>
 
-            <Col span={12} offset={2}>
+            <Col span={md ? 12 : 16} offset={md ? 2 : 0}>
                 <List
                     header={<h2>Upcoming and ongoing matches</h2>}
                     pagination={{
