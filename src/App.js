@@ -5,6 +5,7 @@ import AppRouter from "./components/AppRouter/AppRouter";
 import MatchesListContext from "./context/MatchListContext";
 import { getFromLocalStorage, saveInLocalStorage } from "./functions/localStore";
 import API from "./api";
+import Header from "./components/Header/Header";
 
 function App() {
     const [parsed, setParsed] = useState([]);
@@ -29,8 +30,8 @@ function App() {
 
     return (
         <Layout>
-            <Layout.Header />
-            <Layout.Content>
+            <Header />
+            <Layout.Content style={{minHeight: "80vh"}}>
                 <MatchesListContext.Provider value={parsed}>
                     <AppRouter />
                 </MatchesListContext.Provider>
