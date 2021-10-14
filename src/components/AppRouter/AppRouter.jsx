@@ -1,15 +1,19 @@
 import React from "react";
 import { Switch, Route, Redirect } from "react-router-dom";
-import Json from "../../pages/Json";
-import Main from "../../pages/Main";
+import Spinner from "../Spinner/Spinner";
+
+const Main = React.lazy(() => import("../../pages/Main"));
+const Json = React.lazy(() => import("../../pages/Json"));
 
 const AppRouter = () => {
     return (
-        <Switch>
-            <Route path={"/"} exact={true} component={Main} />
-            <Route path={"/json"} component={Json} />
-            <Redirect to={"/"} />
-        </Switch>
+        <React.Suspense fallback={<Spinner />}>
+            <Switch>
+                <Route path={"/"} exact={true} component={Main} />
+                <Route path={"/json"} component={Json} />
+                <Redirect to={"/"} />
+            </Switch>
+        </React.Suspense>
     );
 };
 

@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useState, useMemo } from "react";
 import { Col, List, Row, Grid } from "antd";
 import MatchCard from "../components/MatchCard/MatchCard";
 import MatchListContext from "../context/MatchListContext";
@@ -16,10 +16,15 @@ const Main = () => {
         onlyUpcomingMatches: false,
     });
 
-    const teams = unique(
-        matchList.map((el) => [el.leftTeam, el.rightTeam]).flat()
+    const teams = useMemo(
+        () => unique(matchList.map((el) => [el.leftTeam, el.rightTeam]).flat()),
+        [matchList]
     );
-    const leagues = unique(matchList.map((el) => el.league));
+
+    const leagues = useMemo(
+        () => unique(matchList.map((el) => el.league)),
+        [matchList]
+    );
 
     return (
         <Row justify="center" align="middle">

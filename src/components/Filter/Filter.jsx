@@ -1,16 +1,18 @@
-import React from "react";
+import React, {useMemo} from "react";
 import { Form, Select, Radio, Button } from "antd";
 
 const Filter = ({ leagues, teams, setFilterOptions, filterOptions }) => {
     const [form] = Form.useForm();
 
-    const leagueOptions = leagues
-        .sort()
-        .map((league) => <Select.Option key={league}>{league}</Select.Option>);
+    const leagueOptions = useMemo(() => 
+        leagues
+            .sort()
+            .map((league) => <Select.Option key={league}>{league}</Select.Option>), [leagues]);
 
-    const teamOptions = teams
-        .sort()
-        .map((team) => <Select.Option key={team}>{team}</Select.Option>);
+    const teamOptions = useMemo(() => 
+        teams
+            .sort()
+            .map((team) => <Select.Option key={team}>{team}</Select.Option>), [teams]);
 
     const onReset = () => {
         form.resetFields();
