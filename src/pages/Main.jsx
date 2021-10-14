@@ -7,7 +7,7 @@ import unique from "../functions/unique";
 import CollapseFilter from "../components/Filter/CollapseFilter";
 
 const Main = () => {
-    const matchesList = useContext(MatchListContext);
+    const matchList = useContext(MatchListContext);
     const { md } = Grid.useBreakpoint();
     const [filterOptions, setFilterOptions] = useState({
         byTeam: [],
@@ -17,9 +17,9 @@ const Main = () => {
     });
 
     const teams = unique(
-        matchesList.map((el) => [el.leftTeam, el.rightTeam]).flat()
+        matchList.map((el) => [el.leftTeam, el.rightTeam]).flat()
     );
-    const leagues = unique(matchesList.map((el) => el.league));
+    const leagues = unique(matchList.map((el) => el.league));
 
     return (
         <Row justify="center" align="middle">
@@ -41,7 +41,7 @@ const Main = () => {
                         showSizeChanger: false,
                         responsive: true,
                     }}
-                    dataSource={matchesList.filter((el) =>
+                    dataSource={matchList.filter((el) =>
                         filterMatch({ filterOptions, ...el })
                     )}
                     renderItem={(item) => (
